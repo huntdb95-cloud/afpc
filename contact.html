@@ -6,151 +6,228 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Contact All Florida Plumbing Contractors to request a plumbing quote, schedule service, or ask a question about your project."
+    content="Contact All Florida Plumbing Contractors to request a quote or schedule plumbing service anywhere in Florida."
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html#home" class="brand">
-          <img src="images/logo.png" alt="All Florida Plumbing Contractors logo" class="brand-logo" />
-          <div class="brand-text">
-            <span class="brand-name">All Florida</span>
-            <span class="brand-subtitle">Plumbing Contractors</span>
-          </div>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-        >
-          <span></span><span></span><span></span>
-        </button>
-
-        <nav class="site-nav" aria-label="Main navigation">
-          <ul>
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section class="section">
-        <div class="container section-header">
-          <h2>Request Service or a Quote</h2>
-          <p>
-            Send us a quick message and a member of the All Florida Plumbing Contractors
-            team will follow up as soon as possible.
-          </p>
+  <!-- HEADER -->
+  <header class="afpc-header">
+    <div class="afpc-container afpc-header-inner">
+      <a href="index.html#top" class="afpc-brand">
+        <img
+          src="images/logo.png"
+          alt="All Florida Plumbing Contractors logo"
+          class="afpc-logo-main"
+        />
+        <div class="afpc-brand-text">
+          <span class="afpc-brand-title">All Florida</span>
+          <span class="afpc-brand-subtitle">Plumbing Contractors</span>
         </div>
-      </section>
+      </a>
 
-      <section class="section section-contact">
-        <div class="container contact-layout">
-          <div class="contact-info">
-            <h2>Get in Touch</h2>
-            <p>
-              Prefer to talk right now? Give us a call or email and we’ll be happy to
-              help.
-            </p>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
 
-            <div class="contact-details">
-              <div>
-                <h3>Phone</h3>
-                <!-- Replace with your real number -->
-                <p><a href="tel:8138108205">(813) 810-8205</a></p>
-              </div>
-              <div>
-                <h3>Email</h3>
-                <!-- Replace with your real email -->
-                <p><a href="mailto:office@allflplumbing.com">office@allflplumbing.com</a></p>
-              </div>
-              <div>
-                <h3>Service Area</h3>
-                <p>Serving homeowners, builders, and businesses across Florida.</p>
-              </div>
-              <div>
-                <h3>Hours</h3>
-                <p>Monday–Friday: 8:00 AM – 5:00 PM<br />Emergency service available.</p>
-              </div>
-            </div>
-          </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html#top">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-          <div class="contact-form-card">
-            <!-- Swap '#' with your Formspree endpoint when ready -->
-            <form class="contact-form" action="#" method="post">
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="name">Name<span>*</span></label>
-                  <input id="name" name="name" type="text" required />
-                </div>
-                <div class="form-field">
-                  <label for="phone">Phone<span>*</span></label>
-                  <input id="phone" name="phone" type="tel" required />
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="email">Email<span>*</span></label>
-                  <input id="email" name="email" type="email" required />
-                </div>
-                <div class="form-field">
-                  <label for="service-type">Service Needed</label>
-                  <select id="service-type" name="service_type">
-                    <option value="">Select an option</option>
-                    <option value="residential">Residential Plumbing</option>
-                    <option value="commercial">Commercial Plumbing</option>
-                    <option value="new-construction">New Construction / Remodel</option>
-                    <option value="water-heater">Water Heater</option>
-                    <option value="drain-sewer">Drain / Sewer Issue</option>
-                    <option value="maintenance">Maintenance Program</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-field">
-                <label for="address">Service Address</label>
-                <input id="address" name="address" type="text" />
-              </div>
-
-              <div class="form-field">
-                <label for="details">Project Details / Issue<span>*</span></label>
-                <textarea id="details" name="details" rows="4" required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-full">
-                Send Request
-              </button>
-              <p class="form-note">
-                By submitting this form, you agree to be contacted by All Florida Plumbing
-                Contractors regarding your request.
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>&copy; <span id="year"></span> All Florida Plumbing Contractors. All rights reserved.</p>
-        <p class="footer-small">
-          Licensed Florida plumbing contractors providing residential, commercial &amp; new
-          construction services.
+  <main>
+    <!-- PAGE INTRO -->
+    <section class="afpc-section">
+      <div class="afpc-container afpc-section-header">
+        <h2>Request Service or a Quote</h2>
+        <p>
+          Tell us what you need help with and a member of the AFPC team will follow up
+          as soon as possible.
         </p>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <!-- CONTACT GRID -->
+    <section class="afpc-section">
+      <div class="afpc-container afpc-contact-grid">
+        <!-- LEFT COLUMN: INFO -->
+        <div>
+          <h3
+            style="
+              text-transform: uppercase;
+              letter-spacing: 0.16em;
+              font-size: 0.95rem;
+              margin-top: 0;
+              margin-bottom: 0.75rem;
+            "
+          >
+            Get in Touch
+          </h3>
+          <p style="font-size: 0.95rem; color: var(--afpc-text-soft); margin-top: 0;">
+            Prefer to talk right now? Call or email us and we’ll be happy to help.
+          </p>
+
+          <div class="afpc-contact-details">
+            <div>
+              <h3>Phone</h3>
+              <!-- TODO: replace with your real number -->
+              <p><a href="tel:5551234567">(555) 123-4567</a></p>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <!-- TODO: replace with your real email -->
+              <p>
+                <a href="mailto:info@allfloridaplumbingcontractors.com">
+                  info@allfloridaplumbingcontractors.com
+                </a>
+              </p>
+            </div>
+            <div>
+              <h3>Service Area</h3>
+              <p>Serving homeowners, builders, and businesses throughout Florida.</p>
+            </div>
+            <div>
+              <h3>Hours</h3>
+              <p>
+                Monday–Friday: 8:00 AM – 5:00 PM<br />
+                Emergency service available.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: FORM CARD -->
+        <div class="afpc-contact-card">
+          <!-- When you're ready, replace "#" with your Formspree endpoint -->
+          <form class="afpc-contact-form" action="#" method="post">
+            <div class="afpc-form-row">
+              <div class="afpc-form-field">
+                <label for="name" class="afpc-form-label">
+                  Name<span>*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  class="afpc-input"
+                />
+              </div>
+
+              <div class="afpc-form-field">
+                <label for="phone" class="afpc-form-label">
+                  Phone<span>*</span>
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  class="afpc-input"
+                />
+              </div>
+            </div>
+
+            <div class="afpc-form-row">
+              <div class="afpc-form-field">
+                <label for="email" class="afpc-form-label">
+                  Email<span>*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  class="afpc-input"
+                />
+              </div>
+
+              <div class="afpc-form-field">
+                <label for="service-type" class="afpc-form-label">
+                  Service Needed
+                </label>
+                <select
+                  id="service-type"
+                  name="service_type"
+                  class="afpc-select"
+                >
+                  <option value="">Select an option</option>
+                  <option value="residential">Residential Plumbing</option>
+                  <option value="commercial">Commercial Plumbing</option>
+                  <option value="new-construction">
+                    New Construction / Remodel
+                  </option>
+                  <option value="water-heater">Water Heater</option>
+                  <option value="drain-sewer">Drain / Sewer Issue</option>
+                  <option value="maintenance">Maintenance Program</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="afpc-form-field">
+              <label for="address" class="afpc-form-label">
+                Service Address
+              </label>
+              <input
+                id="address"
+                name="address"
+                type="text"
+                class="afpc-input"
+              />
+            </div>
+
+            <div class="afpc-form-field">
+              <label for="details" class="afpc-form-label">
+                Project Details / Issue<span>*</span>
+              </label>
+              <textarea
+                id="details"
+                name="details"
+                rows="4"
+                required
+                class="afpc-textarea"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="afpc-btn afpc-btn-primary">
+              Send Request
+            </button>
+
+            <p class="afpc-form-note">
+              By submitting this form, you agree to be contacted by All Florida
+              Plumbing Contractors regarding your request.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="afpc-footer">
+    <div class="afpc-container afpc-footer-inner">
+      <p>
+        &copy; <span id="year"></span> All Florida Plumbing Contractors. All
+        rights reserved.
+      </p>
+      <p>
+        Licensed Florida plumbing contractors serving residential, commercial
+        &amp; new construction clients.
+      </p>
+    </div>
+  </footer>
 
   <script src="scripts.js"></script>
 </body>
