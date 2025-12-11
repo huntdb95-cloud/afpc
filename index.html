@@ -18,6 +18,42 @@
   />
 
   <link rel="stylesheet" href="styles.css" />
+  <style>
+  /* Hide the page until password is confirmed */
+  body {
+    display: none;
+  }
+</style>
+
+<script>
+  (function () {
+    var correctPassword = "Italianstallion25#";
+
+    // If the password was already entered this session, just show the page
+    if (sessionStorage.getItem("siteAuthed") === "true") {
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.style.display = "block";
+      });
+      return;
+    }
+
+    // Ask for password
+    var userInput = prompt("This site is private. Please enter the password:");
+
+    if (userInput === correctPassword) {
+      // Remember for the rest of this browser tab session
+      sessionStorage.setItem("siteAuthed", "true");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.style.display = "block";
+      });
+    } else {
+      // Wrong password: send them away or just leave page blank
+      window.location.href = "https://google.com";
+    }
+  })();
+</script>
+
 </head>
 <body>
   <div class="afpc-page">
