@@ -1,1 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Florida Plumbing Contractors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="All Florida Plumbing Contractors – professional plumbing services across Florida for residential, commercial, and new construction projects."
+  />
+
+  <!-- Google Font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Site Wrapper -->
+  <div class="site-shell">
+    <!-- Header / Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#home" class="brand">
+          <!-- Put your logo file at /images/logo.png or update the path -->
+          <img src="images/logo.png" alt="All Florida Plumbing Contractors logo" class="brand-logo" />
+          <div class="brand-text">
+            <span class="brand-name">All Florida</span>
+            <span class="brand-subtitle">Plumbing Contractors</span>
+          </div>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section id="home" class="hero">
+        <div class="container hero-inner">
+          <div
+            class="slider slider-hero"
+            data-slider
+            data-autoplay="true"
+            data-interval="6500"
+          >
+            <div class="hero-overlay"></div>
+
+            <div class="slider-track">
+              <!-- Slide 1 – update background-image URLs with your own photos -->
+              <div
+                class="slide hero-slide is-active"
+                style="background-image: url('images/hero1.jpg');"
+              >
+              </div>
+
+              <div
+                class="slide hero-slide"
+                style="background-image: url('images/hero2.jpg');"
+              >
+              </div>
+
+              <div
+                class="slide hero-slide"
+                style="background-image: url('images/hero3.jpg');"
+              >
+              </div>
+            </div>
+
+            <button
+              class="slider-control slider-control--prev"
+              type="button"
+              aria-label="Previous hero slide"
+              data-slider-prev
+            >
+              ‹
+            </button>
+            <button
+              class="slider-control slider-control--next"
+              type="button"
+              aria-label="Next hero slide"
+              data-slider-next
+            >
+              ›
+            </button>
+
+            <div class="slider-dots" aria-hidden="true"></div>
+
+            <div class="hero-content">
+              <h1>All Florida Plumbing Contractors</h1>
+              <p>
+                Licensed, insured, and ready for anything from leaks to new construction.
+                Serving homeowners, builders, and businesses throughout Florida.
+              </p>
+              <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Request Service</a>
+                <a href="#services" class="btn btn-outline">View Services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVIEWS SLIDER -->
+      <section class="section section-reviews" aria-labelledby="reviews-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="reviews-heading">What Our Customers Say</h2>
+            <p>Real feedback from happy customers across the state.</p>
+          </div>
+
+          <div
+            class="slider slider-reviews"
+            data-slider
+            data-autoplay="true"
+            data-interval="8000"
+          >
+            <div class="slider-track">
+              <!-- Replace these with your 5 real reviews -->
+              <article class="slide review-slide is-active">
+                <p class="review-text">
+                  “AFPC showed up on time, diagnosed the issue quickly, and had our home
+                  back up and running the same day. Highly recommend.”
+                </p>
+                <p class="review-meta">— Maria R., Tampa</p>
+              </article>
+
+              <article class="slide review-slide">
+                <p class="review-text">
+                  “They handled all of the rough-in plumbing for our remodel and passed
+                  inspection with zero issues. Professional from start to finish.”
+                </p>
+                <p class="review-meta">— James H., Orlando</p>
+              </article>
+
+              <article class="slide review-slide">
+                <p class="review-text">
+                  “Honest pricing, clean work, and they explained everything in plain
+                  English. AFPC is our new go-to plumber.”
+                </p>
+                <p class="review-meta">— Lisa &amp; Mark, Jacksonville</p>
+              </article>
+
+              <article class="slide review-slide">
+                <p class="review-text">
+                  “We had an emergency sewer backup on a Sunday. AFPC had a tech out
+                  quickly and saved us from major damage.”
+                </p>
+                <p class="review-meta">— D. Nguyen, St. Petersburg</p>
+              </article>
+
+              <article class="slide review-slide">
+                <p class="review-text">
+                  “As a contractor, I need subs I can trust. All Florida Plumbing
+                  Contractors hits deadlines and keeps my jobs moving.”
+                </p>
+                <p class="review-meta">— B. Alvarez, General Contractor</p>
+              </article>
+            </div>
+
+            <button
+              class="slider-control slider-control--prev"
+              type="button"
+              aria-label="Previous review"
+              data-slider-prev
+            >
+              ‹
+            </button>
+            <button
+              class="slider-control slider-control--next"
+              type="button"
+              aria-label="Next review"
+              data-slider-next
+            >
+              ›
+            </button>
+            <div class="slider-dots" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES SECTION -->
+      <section id="services" class="section section-services" aria-labelledby="services-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="services-heading">Plumbing Services</h2>
+            <p>
+              From small repairs to large commercial projects, AFPC is equipped to handle
+              every part of your plumbing system.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Residential Plumbing</h3>
+              <p>
+                Repairs, upgrades, and replacements for fixtures, piping, and water lines
+                in homes and condos.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Commercial Plumbing</h3>
+              <p>
+                Complete plumbing solutions for offices, retail, restaurants, and
+                multi-family properties.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>New Construction &amp; Remodels</h3>
+              <p>
+                Ground-up rough-ins, repipes, and trim-out for builders, GCs, and
+                renovation projects.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Water Heaters</h3>
+              <p>
+                Installation, repair, and maintenance for tank and tankless water heater
+                systems.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Drain Cleaning &amp; Sewer Lines</h3>
+              <p>
+                Hydro-jetting, snaking, and camera inspections to clear clogs and diagnose
+                sewer issues.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Leak Detection &amp; Repairs</h3>
+              <p>
+                Slab leaks, hidden pipe leaks, and fixture leaks located and repaired with
+                minimal disruption.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Backflow &amp; Water Quality</h3>
+              <p>
+                Backflow prevention, testing, and water filtration options for cleaner,
+                safer water.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>24/7 Emergency Service</h3>
+              <p>
+                On-call technicians ready for burst pipes, backups, and no-water
+                situations any time of day.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="section section-about" aria-labelledby="about-heading">
+        <div class="container about-layout">
+          <div class="about-text">
+            <h2 id="about-heading">About All Florida Plumbing Contractors</h2>
+            <p>
+              All Florida Plumbing Contractors was founded with a simple goal:
+              dependable, high-quality plumbing services backed by honest communication and
+              Florida-strong work ethic.
+            </p>
+            <p>
+              Our team of licensed plumbers and project managers has experience with
+              residential service calls, large commercial buildings, and full plumbing
+              systems for new construction projects. We understand tight timelines, job
+              coordination, and doing the job right the first time.
+            </p>
+            <p>
+              Whether you’re a homeowner dealing with a leak or a contractor looking for a
+              reliable plumbing partner, AFPC is here to help keep your water moving in
+              the right direction.
+            </p>
+
+            <ul class="about-list">
+              <li>Licensed &amp; insured Florida plumbing contractors</li>
+              <li>Residential, commercial, and new construction expertise</li>
+              <li>Clear estimates and communication on every job</li>
+              <li>Committed to safety, cleanliness, and code compliance</li>
+            </ul>
+          </div>
+
+          <aside class="about-highlight">
+            <h3>Why Choose AFPC?</h3>
+            <ul>
+              <li>Statewide coverage for Florida projects</li>
+              <li>Trusted by homeowners, builders, and property managers</li>
+              <li>Emergency service options available</li>
+              <li>Backed by 5-star customer reviews</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
+        <div class="container contact-layout">
+          <div class="contact-info">
+            <h2 id="contact-heading">Request a Quote or Service</h2>
+            <p>
+              Tell us about your project or plumbing issue and a member of our team will
+              follow up as soon as possible.
+            </p>
+
+            <div class="contact-details">
+              <!-- Replace with your real info -->
+              <div>
+                <h3>Phone</h3>
+                <p><a href="tel:5551234567">(555) 123-4567</a></p>
+              </div>
+              <div>
+                <h3>Email</h3>
+                <p><a href="mailto:info@allfloridaplumbingcontractors.com">info@allfloridaplumbingcontractors.com</a></p>
+              </div>
+              <div>
+                <h3>Service Area</h3>
+                <p>Serving homeowners and contractors across Florida.</p>
+              </div>
+              <div>
+                <h3>License</h3>
+                <p>State Plumbing License #YOUR-LICENSE</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <form class="contact-form" action="#" method="post">
+              <!-- Later you can plug this into Formspree or your backend -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="name">Name<span>*</span></label>
+                  <input id="name" name="name" type="text" required />
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone<span>*</span></label>
+                  <input id="phone" name="phone" type="tel" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="email">Email<span>*</span></label>
+                  <input id="email" name="email" type="email" required />
+                </div>
+                <div class="form-field">
+                  <label for="service-type">Service Needed</label>
+                  <select id="service-type" name="service_type">
+                    <option value="">Select an option</option>
+                    <option value="residential">Residential Plumbing</option>
+                    <option value="commercial">Commercial Plumbing</option>
+                    <option value="new-construction">New Construction / Remodel</option>
+                    <option value="water-heater">Water Heater</option>
+                    <option value="drain-sewer">Drain / Sewer Issue</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="details">Project Details / Issue<span>*</span></label>
+                <textarea id="details" name="details" rows="4" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                Send Request
+              </button>
+              <p class="form-note">
+                By submitting this form, you agree to be contacted by All Florida Plumbing
+                Contractors regarding your request.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          &copy; <span id="year"></span> All Florida Plumbing Contractors. All rights
+          reserved.
+        </p>
+        <p class="footer-small">
+          Licensed Florida plumbing contractors providing residential, commercial &amp; new
+          construction services.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
 
