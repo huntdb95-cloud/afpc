@@ -1,4 +1,4 @@
-// scripts.js – slider, nav toggle, and auto-year updater
+// scripts.js – nav toggle, sliders, and auto year
 
 document.addEventListener("DOMContentLoaded", () => {
   // NAV TOGGLE
@@ -14,52 +14,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // AUTO YEAR
   const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
-  // SLIDER LOGIC
+  // GENERIC SLIDER LOGIC
   document.querySelectorAll("[data-slider]").forEach((slider) => {
     const slides = slider.querySelectorAll(".slide");
-    const prev = slider.querySelector("[data-slider-prev]");
-    const next = slider.querySelector("[data-slider-next]");
-    const dotsContainer = slider.querySelector(".afpc-slider-dots");
-
     if (!slides.length) return;
+
+    const prevBtn = slider.querySelector("[data-slider-prev]");
+    const nextBtn = slider.querySelector("[data-slider-next]");
+    const dotsContainer = slider.querySelector(".afpc-slider-dots");
 
     let current = 0;
     const total = slides.length;
-
-    // create dots
     const dots = [];
+
+    // Create dots if container exists
     if (dotsContainer) {
-      slides.forEach((_, i) => {
+      slides.forEach((_, index) => {
         const dot = document.createElement("button");
-        if (i === 0) dot.classList.add("is-active");
+        if (index === 0) dot.classList.add("is-active");
         dotsContainer.appendChild(dot);
         dots.push(dot);
-        dot.addEventListener("click", () => goToSlide(i));
+
+        dot.addEventListener("click", () => goToSlide(index));
       });
     }
 
-    function showSlide(i) {
-      slides.forEach((s, idx) => {
-        s.classList.toggle("is-active", idx === i);
+    function updateSlides() {
+      slides.forEach((slide, index) => {
+        slide.classList.toggle("is-active", index === current);
       });
-      dots.forEach((d, idx) => {
-        d.classList.toggle("is-active", idx === i);
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("is-active", index === current);
       });
     }
 
-    function goToSlide(i) {
-      current = (i + total) % total;
-      showSlide(current);
+    function goToSlide(index) {
+      current = (index + total) % total; // wrap around
+      updateSlides();
     }
 
-    if (prev) prev.addEventListener("click", () => goToSlide(current - 1));
-    if (next) next.addEventListener("click", () => goToSlide(current + 1));
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => goToSlide(current - 1));
+    }
 
-    // autoplay
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => goToSlide(current + 1));
+    }
+
+    // Autoplay
     const autoplay = slider.dataset.autoplay === "true";
-    const interval = parseInt(slider.dataset.interval) || 5000;
+    const interval = parseInt(slider.dataset.interval, 10) || 5000;
 
     if (autoplay) {
       setInterval(() => {
@@ -67,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, interval);
     }
 
-    // initialize
-    showSlide(current);
+    // INITIALIZE
+    updateSlides();
   });
 });
