@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Subcontractors | All Florida Plumbing Contractors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Subcontractor onboarding for All Florida Plumbing Contractors – submit your W-9 and subcontractor agreement online."
+  />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Subcontractor checklist layout */
+
+    .sub-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .summary-pill {
+      flex: 1 1 220px;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--afpc-border-soft);
+      background: #fdf7ee;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+    }
+
+    .summary-pill.completed {
+      border-color: var(--afpc-orange);
+      background: #fff4e0;
+    }
+
+    .summary-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      color: var(--afpc-text-soft);
+    }
+
+    .summary-status {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--afpc-text-dark);
+    }
+
+    .sub-divider {
+      border: none;
+      border-top: 1px dashed var(--afpc-border-soft);
+      margin: 1rem 0 1.25rem;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.8rem 0.2rem;
+      border-radius: 0.8rem;
+      border: 1px solid transparent;
+    }
+
+    .checklist-item.completed {
+      border-color: var(--afpc-orange);
+      background: #fffaf3;
+    }
+
+    .checklist-main {
+      display: flex;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid var(--afpc-border-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--afpc-orange);
+      flex-shrink: 0;
+    }
+
+    .check-text {
+      min-width: 0;
+    }
+
+    .check-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .check-title-done {
+      color: #8c5a13;
+    }
+
+    .check-caption {
+      font-size: 0.82rem;
+      color: var(--afpc-text-soft);
+    }
+
+    .check-actions {
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      .checklist-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+
+      .check-actions {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .check-actions .afpc-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="afpc-header">
+    <div class="afpc-container afpc-header-inner">
+      <a href="index.html#top" class="afpc-brand">
+        <img
+          src="images/logo.png"
+          alt="All Florida Plumbing Contractors logo"
+          class="afpc-logo-main"
+        />
+        <div class="afpc-brand-text">
+          <span class="afpc-brand-title">All Florida</span>
+          <span class="afpc-brand-subtitle">Plumbing Contractors</span>
+        </div>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html#top">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="subcontractors.html">Subcontractors</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- TOP BAND -->
+    <section
+      class="afpc-section"
+      style="
+        background: #ffffff;
+        border-bottom: 1px solid var(--afpc-border-soft);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      "
+    >
+      <div class="afpc-container afpc-section-header">
+        <h2 class="afpc-page-title">Subcontractor Onboarding</h2>
+        <p>
+          Welcome to the All Florida Plumbing Contractors subcontractor portal. Please
+          complete a W-9 and sign our subcontractor agreement so we can set you up as a
+          trade partner.
+        </p>
+      </div>
+    </section>
+
+    <!-- CHECKLIST + BUTTONS -->
+    <section class="afpc-section">
+      <div class="afpc-container">
+        <div class="afpc-contact-card">
+          <h3 style="margin-top:0; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.16em; font-size:0.9rem;">
+            Your checklist
+          </h3>
+          <p style="margin-top:0; margin-bottom:1.25rem; font-size:0.9rem; color:var(--afpc-text-soft);">
+            This page will show which items you’ve completed on this device. After you
+            submit each form, you’ll be sent back here and the corresponding item will be
+            checked.
+          </p>
+
+          <!-- Summary pills -->
+          <div class="sub-summary">
+            <div class="summary-pill" id="summary-w9">
+              <span class="summary-label">W-9 on file</span>
+              <span class="summary-status"></span>
+            </div>
+            <div class="summary-pill" id="summary-agreement">
+              <span class="summary-label">Subcontractor Agreement signed</span>
+              <span class="summary-status"></span>
+            </div>
+          </div>
+
+          <hr class="sub-divider" />
+
+          <!-- Detailed checklist -->
+          <div class="checklist">
+            <!-- W-9 row -->
+            <div class="checklist-item" id="item-w9">
+              <div class="checklist-main">
+                <span class="check-icon" aria-hidden="true"></span>
+                <div class="check-text">
+                  <div class="check-title">Complete and submit W-9</div>
+                  <div class="check-caption">
+                    IRS W-9 form with your legal name, business name, tax classification,
+                    address, and taxpayer ID (SSN or EIN).
+                  </div>
+                </div>
+              </div>
+              <div class="check-actions">
+                <a href="w9.html" class="afpc-btn afpc-btn-outline">
+                  Open W-9 form
+                </a>
+              </div>
+            </div>
+
+            <!-- Agreement row -->
+            <div class="checklist-item" id="item-agreement">
+              <div class="checklist-main">
+                <span class="check-icon" aria-hidden="true"></span>
+                <div class="check-text">
+                  <div class="check-title">Sign subcontractor agreement</div>
+                  <div class="check-caption">
+                    All Florida Plumbing Contractors blanket subcontractor agreement
+                    outlining scope, safety, payment, and insurance requirements.
+                  </div>
+                </div>
+              </div>
+              <div class="check-actions">
+                <a href="subcontractor-agreement.html" class="afpc-btn afpc-btn-outline">
+                  Open Agreement
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <p style="margin-top:1.5rem; font-size:0.82rem; color:var(--afpc-text-soft);">
+            <strong>Note:</strong> The checkmarks shown here are based on this browser only
+            (using local storage) and the confirmation link we send you back after each
+            Formspree submission. If you switch devices or clear your browser data, you may
+            need to complete the checklist again.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="afpc-footer">
+    <div class="afpc-container afpc-footer-inner">
+      <p>
+        &copy; <span id="year"></span> All Florida Plumbing Contractors. All rights
+        reserved.
+      </p>
+      <p>
+        Licensed Florida plumbing contractors serving residential, commercial &amp; new
+        construction clients.
+      </p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    // Keys in localStorage
+    const W9_KEY = "sub_w9_completed";
+    const AGREEMENT_KEY = "sub_agreement_completed";
+
+    // Read URL params (e.g. ?w9=done&agreement=done)
+    const params = new URLSearchParams(window.location.search);
+    const w9Param = params.get("w9");
+    const agreementParam = params.get("agreement");
+
+    if (w9Param === "done") {
+      localStorage.setItem(W9_KEY, "true");
+    }
+    if (agreementParam === "done") {
+      localStorage.setItem(AGREEMENT_KEY, "true");
+    }
+
+    const w9Done = localStorage.getItem(W9_KEY) === "true";
+    const agreementDone = localStorage.getItem(AGREEMENT_KEY) === "true";
+
+    function updateChecklistItem(id, done) {
+      const item = document.getElementById(id);
+      if (!item) return;
+      const icon = item.querySelector(".check-icon");
+      const title = item.querySelector(".check-title");
+
+      if (done) {
+        item.classList.add("completed");
+        if (icon) icon.textContent = "✓";
+        if (title) title.classList.add("check-title-done");
+      } else {
+        item.classList.remove("completed");
+        if (icon) icon.textContent = "";
+        if (title) title.classList.remove("check-title-done");
+      }
+    }
+
+    function updateSummary(id, done) {
+      const pill = document.getElementById(id);
+      if (!pill) return;
+      const status = pill.querySelector(".summary-status");
+      if (!status) return;
+
+      if (done) {
+        pill.classList.add("completed");
+        status.textContent = "Completed";
+      } else {
+        pill.classList.remove("completed");
+        status.textContent = "Not yet completed";
+      }
+    }
+
+    updateChecklistItem("item-w9", w9Done);
+    updateChecklistItem("item-agreement", agreementDone);
+    updateSummary("summary-w9", w9Done);
+    updateSummary("summary-agreement", agreementDone);
+  </script>
+</body>
+</html>
