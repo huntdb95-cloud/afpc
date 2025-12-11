@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W-9 Form | All Florida Plumbing Contractors</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* General form styling (matches agreement page) */
+    .form-card {
+      background: #ffffff;
+      border-radius: 1.3rem;
+      padding: 1.4rem 1.3rem;
+      border: 1px solid var(--afpc-border-soft);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .form-row-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--afpc-text-soft);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.6rem;
+      border: 1px solid var(--afpc-border-soft);
+      font: inherit;
+      color: var(--afpc-text-dark);
+      background: #ffffff;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-input:focus-visible,
+    .form-textarea:focus-visible {
+      border-color: var(--afpc-orange);
+      box-shadow: 0 0 0 1px rgba(242, 140, 47, 0.4);
+    }
+
+    .signature-pad-wrapper {
+      border-radius: 0.75rem;
+      border: 1px dashed var(--afpc-border-soft);
+      background: #fffaf3;
+      padding: 0.5rem;
+    }
+
+    .signature-pad {
+      width: 100%;
+      height: 120px;
+      display: block;
+      background: #ffffff;
+      border-radius: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      cursor: pointer;
+      background: #ffffff;
+      white-space: nowrap;
+    }
+
+    .btn.primary {
+      background: linear-gradient(
+        135deg,
+        var(--afpc-orange),
+        var(--afpc-orange-soft)
+      );
+      color: #2b2114;
+      border-color: var(--afpc-orange);
+      box-shadow: 0 12px 24px rgba(242, 140, 47, 0.45);
+    }
+
+    .btn.secondary {
+      border-color: var(--afpc-border-soft);
+      color: var(--afpc-text-soft);
+    }
+
+    .btn.primary:hover,
+    .btn.primary:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(242, 140, 47, 0.65);
+    }
+
+    .btn.secondary:hover,
+    .btn.secondary:focus-visible {
+      border-color: var(--afpc-orange);
+      color: var(--afpc-text-dark);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    #w9-status.error {
+      color: #c0392b;
+    }
+
+    /* Hidden W-9 capture layout (overlays onto w9.png) */
+    #w9-capture-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .w9-capture-page {
+      width: 8.5in;
+      height: 11in;
+      position: relative;
+      background: #ffffff;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    .w9-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .w9-text-line {
+      position: absolute;
+      font-family: "Times New Roman", "Georgia", serif;
+      font-size: 10pt;
+      color: #111827;
+      white-space: nowrap;
+      max-width: 60%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #w9-name-text {
+      top: 15%;
+      left: 12%;
+      max-width: 65%;
+    }
+
+    #w9-business-text {
+      top: 18.2%;
+      left: 12%;
+      max-width: 65%;
+    }
+
+    #w9-tax-class-text {
+      top: 28.75%;
+      left: 26.5%;
+      max-width: 75%;
+      font-size: 9pt;
+    }
+
+    #w9-address-text {
+      top: 36.5%;
+      left: 12%;
+      max-width: 65%;
+    }
+
+    #w9-city-text {
+      top: 39.5%;
+      left: 12%;
+      max-width: 65%;
+    }
+
+    #w9-ssn-text {
+      top: 48.75%;
+      left: 69%;
+      max-width: 25%;
+      font-size: 20;
+      letter-spacing: 1em;
+    }
+
+    #w9-ein-text {
+      top: 54%;
+      left: 69%;
+      max-width: 16%;
+      font-size: 20;
+      letter-spacing: 0.6em;
+    }
+
+    #w9-signature-image {
+      position: absolute;
+      bottom: 22.5%;
+      left: 14%;
+      width: 35%;
+      height: 10%;
+      object-fit: contain;
+    }
+
+    #w9-date-text {
+      position: absolute;
+      bottom: 25%;
+      right: 23.5%;
+      max-width: 15%;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="afpc-header">
+    <div class="afpc-container afpc-header-inner">
+      <a href="index.html#top" class="afpc-brand">
+        <img src="images/logo.png" alt="All Florida Plumbing Contractors logo" class="afpc-logo-main" />
+        <div class="afpc-brand-text">
+          <span class="afpc-brand-title">All Florida</span>
+          <span class="afpc-brand-subtitle">Plumbing Contractors</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html#top">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="subcontractors.html">Subcontractors</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- INTRO BAND -->
+    <section
+      class="afpc-section"
+      style="
+        background: #ffffff;
+        border-bottom: 1px solid var(--afpc-border-soft);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      "
+    >
+      <div class="afpc-container afpc-section-header">
+        <h2 class="afpc-page-title">W-9 – Taxpayer Identification</h2>
+        <p>
+          Please complete this W-9 information. We’ll place your details and
+          signature onto the official W-9 form image and send a full 8.5&quot; x
+          11&quot; copy to All Florida Plumbing Contractors via Formspree.
+        </p>
+      </div>
+    </section>
+
+    <section class="afpc-section">
+      <div class="afpc-container">
+        <form
+          id="w9-form"
+          action="https://formspree.io/f/xdkqdpgd"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <!-- Basic contact info -->
+          <div class="form-card">
+            <h2 style="margin-top:0;margin-bottom:0.75rem;">Contact information</h2>
+            <div class="form-grid">
+              <div>
+                <label class="form-label" for="contact-name">Your Name</label>
+                <input
+                  id="contact-name"
+                  name="contact_name"
+                  class="form-input"
+                  required
+                />
+              </div>
+              <div>
+                <label class="form-label" for="contact-email">Email</label>
+                <input
+                  id="contact-email"
+                  name="contact_email"
+                  type="email"
+                  class="form-input"
+                  required
+                />
+              </div>
+              <div>
+                <label class="form-label" for="contact-phone">Phone</label>
+                <input
+                  id="contact-phone"
+                  name="contact_phone"
+                  type="tel"
+                  class="form-input"
+                />
+              </div>
+              <div class="form-row-full">
+                <label class="form-label" for="contact-notes">
+                  Notes (optional)
+                </label>
+                <textarea
+                  id="contact-notes"
+                  name="contact_notes"
+                  class="form-textarea"
+                  placeholder="Anything else we should know."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- W-9 data entry -->
+          <div class="form-card" style="margin-top:1.75rem;">
+            <h2 style="margin-top:0;margin-bottom:0.75rem;">W-9 details</h2>
+            <p style="font-size:0.85rem;margin-top:0; color:var(--afpc-text-soft);">
+              Enter your information below as it should appear on your W-9.
+              We’ll overlay this onto the official form when we submit it.
+            </p>
+
+            <div class="form-grid">
+              <div class="form-row-full">
+                <label class="form-label" for="w9-name">
+                  Name (as shown on your tax return)
+                </label>
+                <input
+                  id="w9-name"
+                  name="w9_name"
+                  class="form-input"
+                  required
+                />
+              </div>
+
+              <div class="form-row-full">
+                <label class="form-label" for="w9-business">
+                  Business name / disregarded entity name (if different)
+                </label>
+                <input
+                  id="w9-business"
+                  name="w9_business"
+                  class="form-input"
+                />
+              </div>
+
+              <div class="form-row-full">
+                <label class="form-label" for="w9-tax-class">
+                  Federal tax classification (entity type)
+                </label>
+                <select
+                  id="w9-tax-class"
+                  name="w9_tax_class"
+                  class="form-input"
+                  required
+                >
+                  <option value="" disabled selected>-- Select entity type --</option>
+                  <option value="Individual/sole proprietor or single-member LLC">
+                    Individual / sole proprietor or single-member LLC
+                  </option>
+                  <option value="C Corporation">C Corporation</option>
+                  <option value="S Corporation">S Corporation</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Trust/estate">Trust / estate</option>
+                  <option value="Limited liability company">
+                    LLC (Limited liability company)
+                  </option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-row-full">
+                <label class="form-label" for="w9-address">
+                  Address (number, street, and apt. or suite no.)
+                </label>
+                <input
+                  id="w9-address"
+                  name="w9_address"
+                  class="form-input"
+                  required
+                />
+              </div>
+
+              <div class="form-row-full">
+                <label class="form-label" for="w9-city">
+                  City, state, and ZIP code
+                </label>
+                <input
+                  id="w9-city"
+                  name="w9_city"
+                  class="form-input"
+                  required
+                />
+              </div>
+
+              <div class="form-row-full">
+                <label class="form-label">
+                  Taxpayer Identification Number (choose one)
+                </label>
+                <div class="form-grid">
+                  <div>
+                    <label class="form-label" for="w9-ssn">
+                      SSN (###-##-####)
+                    </label>
+                    <input
+                      id="w9-ssn"
+                      name="w9_ssn"
+                      class="form-input"
+                      placeholder="123-45-6789"
+                    />
+                  </div>
+                  <div>
+                    <label class="form-label" for="w9-ein">
+                      EIN (##-#######)
+                    </label>
+                    <input
+                      id="w9-ein"
+                      name="w9_ein"
+                      class="form-input"
+                      placeholder="12-3456789"
+                    />
+                  </div>
+                </div>
+                <p style="font-size:0.78rem;color:var(--afpc-text-soft);margin-top:0.35rem;">
+                  Please provide either SSN or EIN (one is required).
+                </p>
+              </div>
+
+              <div class="form-row-full">
+                <label class="form-label">
+                  Signature (sign in the box below)
+                </label>
+                <div class="signature-pad-wrapper">
+                  <canvas id="w9-signature-pad" class="signature-pad"></canvas>
+                </div>
+              </div>
+
+              <div>
+                <label class="form-label" for="w9-date">
+                  Date
+                </label>
+                <input
+                  id="w9-date"
+                  name="w9_date"
+                  class="form-input"
+                  placeholder="MM/DD/YYYY"
+                  required
+                />
+              </div>
+            </div>
+
+            <div style="margin-top:0.75rem;text-align:right;">
+              <button
+                type="button"
+                class="btn secondary"
+                id="btn-clear-w9-signature"
+              >
+                Clear signature
+              </button>
+            </div>
+          </div>
+
+          <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <button type="submit" class="btn primary">
+              Submit W-9 to All Florida Plumbing
+            </button>
+            <div id="w9-status" style="font-size:0.84rem;"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="afpc-footer">
+    <div class="afpc-container afpc-footer-inner">
+      <p>&copy; <span id="year"></span> All Florida Plumbing Contractors. All rights reserved.</p>
+      <p>Licensed Florida plumbing contractors serving residential, commercial &amp; new construction clients.</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <!-- Signature pad + html2canvas -->
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Hidden W-9 capture (official image + overlay text) -->
+  <div id="w9-capture-wrapper">
+    <div id="w9-capture" class="w9-capture-page">
+      <!-- Make sure this path & file name matches your actual image -->
+      <img
+        src="w9.png"
+        alt="IRS Form W-9"
+        class="w9-image"
+      />
+
+      <!-- Overlay text fields -->
+      <div id="w9-name-text" class="w9-text-line"></div>
+      <div id="w9-business-text" class="w9-text-line"></div>
+      <div id="w9-tax-class-text" class="w9-text-line"></div>
+      <div id="w9-address-text" class="w9-text-line"></div>
+      <div id="w9-city-text" class="w9-text-line"></div>
+      <div id="w9-ssn-text" class="w9-text-line"></div>
+      <div id="w9-ein-text" class="w9-text-line"></div>
+
+      <!-- Signature + date overlay -->
+      <img id="w9-signature-image" alt="Signature on W-9" />
+      <div id="w9-date-text"></div>
+    </div>
+  </div>
+
+  <script>
+    const W9_KEY = "sub_w9_completed";
+
+    const form = document.getElementById("w9-form");
+    const statusEl = document.getElementById("w9-status");
+    const sigCanvas = document.getElementById("w9-signature-pad");
+
+    function initSignatureCanvas(canvas) {
+      if (!canvas) return;
+      const parent = canvas.parentElement;
+      const width = parent.clientWidth || 300;
+      const height = parent.clientHeight || 100;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    initSignatureCanvas(sigCanvas);
+
+    const w9Pad = new SignaturePad(sigCanvas, {
+      penColor: "#000000",
+      backgroundColor: "rgba(0,0,0,0)"
+    });
+
+    document
+      .getElementById("btn-clear-w9-signature")
+      .addEventListener("click", () => w9Pad.clear());
+
+    function getSelectedTaxClass() {
+      const select = document.getElementById("w9-tax-class");
+      return select ? select.value : "";
+    }
+
+    function waitForW9Image() {
+      const img = document.querySelector("#w9-capture .w9-image");
+      if (!img) {
+        console.warn("W-9 image element not found in DOM.");
+        return Promise.resolve();
+      }
+
+      if (img.complete && img.naturalWidth !== 0) {
+        return Promise.resolve();
+      }
+
+      return new Promise((resolve) => {
+        img.addEventListener(
+          "load",
+          () => resolve(),
+          { once: true }
+        );
+        img.addEventListener(
+          "error",
+          () => {
+            console.error(
+              "Failed to load W-9 background image. Check the src path for w9.png."
+            );
+            resolve();
+          },
+          { once: true }
+        );
+      });
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.className = "";
+      statusEl.textContent = "Preparing W-9… please wait.";
+
+      const nameVal = document.getElementById("w9-name").value.trim();
+      const ssnVal = document.getElementById("w9-ssn").value.trim();
+      const einVal = document.getElementById("w9-ein").value.trim();
+      const taxClassVal = getSelectedTaxClass();
+
+      if (!nameVal) {
+        statusEl.className = "error";
+        statusEl.textContent = "Please enter your name (line 1).";
+        return;
+      }
+
+      if (!taxClassVal) {
+        statusEl.className = "error";
+        statusEl.textContent = "Please select your Federal tax classification.";
+        return;
+      }
+
+      if (!ssnVal && !einVal) {
+        statusEl.className = "error";
+        statusEl.textContent = "Please provide either SSN or EIN.";
+        return;
+      }
+
+      if (w9Pad.isEmpty()) {
+        statusEl.className = "error";
+        statusEl.textContent = "Please sign the W-9 before submitting.";
+        return;
+      }
+
+      const capturePage = document.getElementById("w9-capture");
+
+      try {
+        await waitForW9Image();
+
+        document.getElementById("w9-name-text").textContent =
+          document.getElementById("w9-name").value;
+        document.getElementById("w9-business-text").textContent =
+          document.getElementById("w9-business").value;
+        document.getElementById("w9-tax-class-text").textContent =
+          "Tax classification: " + taxClassVal;
+        document.getElementById("w9-address-text").textContent =
+          document.getElementById("w9-address").value;
+        document.getElementById("w9-city-text").textContent =
+          document.getElementById("w9-city").value;
+        document.getElementById("w9-ssn-text").textContent = ssnVal;
+        document.getElementById("w9-ein-text").textContent = einVal;
+        document.getElementById("w9-date-text").textContent =
+          document.getElementById("w9-date").value;
+
+        const sigDataUrl = sigCanvas.toDataURL("image/png");
+        const sigImg = document.getElementById("w9-signature-image");
+        sigImg.src = sigDataUrl;
+
+        const w9Canvas = await html2canvas(capturePage, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: "#ffffff",
+          logging: false
+        });
+
+        const w9Blob = await new Promise((resolve) =>
+          w9Canvas.toBlob(resolve, "image/png")
+        );
+
+        const formData = new FormData(form);
+        if (w9Blob) {
+          formData.append("w9_file", w9Blob, "w9-completed.png");
+        }
+
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (response.ok) {
+          localStorage.setItem(W9_KEY, "true");
+          window.location.href = "subcontractors.html?w9=done";
+        } else {
+          statusEl.className = "error";
+          statusEl.textContent =
+            "There was a problem submitting your W-9. Please try again.";
+        }
+      } catch (err) {
+        console.error(err);
+        statusEl.className = "error";
+        statusEl.textContent =
+          "Unexpected error preparing the W-9. Please refresh and try again.";
+      }
+    });
+  </script>
+</body>
+</html>
