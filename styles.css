@@ -397,12 +397,33 @@ a {
   margin-bottom: 2rem;
 }
 
+/* Updated: more professional headings */
 .afpc-section-header h2 {
-  margin: 0 0 0.5rem;
+  position: relative;
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 1rem;
-  color: #303030;
+  letter-spacing: 0.18em;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--afpc-text-dark);
+}
+
+.afpc-section-header h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--afpc-orange),
+    var(--afpc-orange-soft)
+  );
 }
 
 .afpc-section-header p {
