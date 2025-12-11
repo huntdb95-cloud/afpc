@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="All Florida Plumbing Contractors – professional plumbing services across Florida for residential, commercial, and new construction projects."
+    content="All Florida Plumbing Contractors – Residential, commercial, and new construction plumbing services across Florida."
   />
 
-  <!-- Google Font (optional) -->
+  <!-- Optional Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -17,21 +17,602 @@
     rel="stylesheet"
   />
 
+  <!-- Your existing styles (safe to keep) -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Page-specific light theme overrides & layout -->
+  <style>
+    :root {
+      --afpc-orange: #f28c2f;
+      --afpc-orange-soft: #ffb45b;
+      --afpc-cream: #fff9f1;
+      --afpc-cream-soft: #fff3e0;
+      --afpc-text-dark: #212121;
+      --afpc-text-soft: #555555;
+      --afpc-border-soft: #e3ded7;
+      --afpc-max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(242, 140, 47, 0.15), transparent 55%),
+        radial-gradient(circle at bottom, rgba(255, 165, 89, 0.2), transparent 60%),
+        var(--afpc-cream);
+      color: var(--afpc-text-dark);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .afpc-container {
+      width: 100%;
+      max-width: var(--afpc-max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* HEADER / NAV -------------------------------------------------- */
+
+    .afpc-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(242, 140, 47, 0.25);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .afpc-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      padding: 0.6rem 0;
+    }
+
+    .afpc-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .afpc-logo-main {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 3px solid var(--afpc-orange);
+      background: #ffffff;
+      object-fit: contain;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .afpc-brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .afpc-brand-title {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      color: var(--afpc-text-dark);
+    }
+
+    .afpc-brand-subtitle {
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      color: var(--afpc-text-soft);
+    }
+
+    /* nav-toggle / site-nav names kept to work with scripts.js */
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--afpc-text-dark);
+      border-radius: 999px;
+      margin: 4px 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .site-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav a {
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding-bottom: 0.25rem;
+      position: relative;
+      color: var(--afpc-text-soft);
+    }
+
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--afpc-orange),
+        var(--afpc-orange-soft)
+      );
+      transition: width 0.2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--afpc-text-dark);
+    }
+
+    .site-nav a:hover::after,
+    .site-nav a:focus-visible::after {
+      width: 100%;
+    }
+
+    /* HERO ---------------------------------------------------------- */
+
+    .afpc-hero {
+      padding: 2.8rem 0 2.2rem;
+    }
+
+    .afpc-hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .afpc-hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #8c8272;
+      margin-bottom: 0.5rem;
+    }
+
+    .afpc-hero-title {
+      font-size: clamp(2rem, 3vw + 1rem, 2.7rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 0.75rem;
+      color: #202020;
+    }
+
+    .afpc-hero-tagline {
+      margin: 0 0 1.5rem;
+      color: var(--afpc-text-soft);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .afpc-hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .afpc-badge {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(242, 140, 47, 0.35);
+      background: rgba(255, 244, 228, 0.9);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8c5a13;
+    }
+
+    .afpc-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .afpc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease,
+        transform 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .afpc-btn-primary {
+      background: linear-gradient(
+        135deg,
+        var(--afpc-orange),
+        var(--afpc-orange-soft)
+      );
+      color: #2b2114;
+      box-shadow: 0 12px 24px rgba(242, 140, 47, 0.45);
+      border-color: var(--afpc-orange);
+    }
+
+    .afpc-btn-primary:hover,
+    .afpc-btn-primary:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(242, 140, 47, 0.65);
+    }
+
+    .afpc-btn-outline {
+      background: #ffffff;
+      border-color: var(--afpc-border-soft);
+      color: var(--afpc-text-soft);
+    }
+
+    .afpc-btn-outline:hover,
+    .afpc-btn-outline:focus-visible {
+      border-color: var(--afpc-orange);
+      color: var(--afpc-text-dark);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    /* HERO PHOTO SLIDER --------------------------------------------- */
+
+    .afpc-hero-slider-wrapper {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 0.9rem;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(242, 140, 47, 0.2);
+    }
+
+    .afpc-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.2rem;
+    }
+
+    .afpc-slider .slider-track {
+      position: relative;
+    }
+
+    .afpc-slider .slide {
+      display: none;
+      position: relative;
+    }
+
+    .afpc-slider .slide.is-active {
+      display: block;
+    }
+
+    .afpc-hero-slide {
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 1.2rem;
+    }
+
+    .afpc-slider-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(242, 140, 47, 0.75);
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #9b5b0f;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .afpc-slider-control[data-slider-prev] {
+      left: 0.75rem;
+    }
+
+    .afpc-slider-control[data-slider-next] {
+      right: 0.75rem;
+    }
+
+    .afpc-slider-control:hover,
+    .afpc-slider-control:focus-visible {
+      background: var(--afpc-orange-soft);
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .afpc-slider-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 0.7rem;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .afpc-slider-dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(160, 120, 70, 0.6);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .afpc-slider-dots button.is-active {
+      background: var(--afpc-orange);
+      border-color: var(--afpc-orange);
+    }
+
+    /* GENERIC SECTION + CARDS -------------------------------------- */
+
+    .afpc-section {
+      padding: 3rem 0;
+    }
+
+    .afpc-section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .afpc-section-header h2 {
+      margin: 0 0 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 1rem;
+      color: #303030;
+    }
+
+    .afpc-section-header p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--afpc-text-soft);
+    }
+
+    .afpc-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .afpc-card {
+      background: #ffffff;
+      border-radius: 1.1rem;
+      padding: 1.2rem 1rem;
+      border: 1px solid var(--afpc-border-soft);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .afpc-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        var(--afpc-orange-soft),
+        var(--afpc-orange)
+      );
+    }
+
+    .afpc-card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #303030;
+    }
+
+    .afpc-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--afpc-text-soft);
+    }
+
+    /* WHY CHOOSE US ------------------------------------------------- */
+
+    .afpc-section-why {
+      background: #ffffff;
+      border-top: 1px solid rgba(227, 222, 215, 0.9);
+      border-bottom: 1px solid rgba(227, 222, 215, 0.9);
+    }
+
+    /* REVIEWS SECTION ----------------------------------------------- */
+
+    .afpc-section-reviews {
+      background: var(--afpc-cream-soft);
+    }
+
+    .afpc-reviews-layout {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .afpc-reviews-slider {
+      margin-top: 1.5rem;
+      background: #ffffff;
+      border-radius: 1.3rem;
+      padding: 1.5rem 1.4rem 1.7rem;
+      border: 1px solid var(--afpc-border-soft);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .afpc-review-slide .review-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin: 0 0 0.6rem;
+      color: var(--afpc-text-dark);
+    }
+
+    .afpc-review-slide .review-meta {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #a16b1e;
+      font-weight: 600;
+    }
+
+    .afpc-stars {
+      color: #f2a13b;
+      margin-bottom: 0.35rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* FOOTER -------------------------------------------------------- */
+
+    .afpc-footer {
+      background: #fdf7ee;
+      border-top: 1px solid var(--afpc-border-soft);
+      padding: 1rem 0 1.5rem;
+      font-size: 0.8rem;
+      color: #7a7266;
+    }
+
+    .afpc-footer-inner {
+      text-align: center;
+    }
+
+    /* RESPONSIVE ---------------------------------------------------- */
+
+    @media (max-width: 900px) {
+      .afpc-hero-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-bottom: 1px solid rgba(242, 140, 47, 0.25);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.18s ease, opacity 0.18s ease;
+      }
+
+      .site-nav ul {
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 0.6rem 1.25rem 0.9rem;
+      }
+
+      .site-nav.is-open {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-toggle.is-open span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .nav-toggle.is-open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.is-open span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      .afpc-hero {
+        padding-top: 2.1rem;
+      }
+
+      .afpc-hero-slider-wrapper {
+        max-width: 480px;
+        margin-inline: auto;
+      }
+
+      .afpc-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .afpc-cards {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .afpc-hero-title {
+        font-size: 1.8rem;
+      }
+
+      .afpc-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .afpc-hero-slide {
+        height: 220px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="site-shell">
-    <!-- Header / Navigation -->
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html#home" class="brand">
-          <!-- Header logo (smaller) -->
-          <img src="images/logo.png"
-               alt="All Florida Plumbing Contractors logo"
-               class="brand-logo" />
-          <div class="brand-text">
-            <span class="brand-name">All Florida</span>
-            <span class="brand-subtitle">Plumbing Contractors</span>
+  <div class="afpc-page">
+    <!-- HEADER -->
+    <header class="afpc-header">
+      <div class="afpc-container afpc-header-inner">
+        <a href="#top" class="afpc-brand">
+          <img
+            src="images/logo.png"
+            alt="All Florida Plumbing Contractors logo"
+            class="afpc-logo-main"
+          />
+          <div class="afpc-brand-text">
+            <span class="afpc-brand-title">All Florida</span>
+            <span class="afpc-brand-subtitle">Plumbing Contractors</span>
           </div>
         </a>
 
@@ -46,7 +627,7 @@
 
         <nav class="site-nav" aria-label="Main navigation">
           <ul>
-            <li><a href="index.html#home">Home</a></li>
+            <li><a href="#top">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -55,316 +636,235 @@
       </div>
     </header>
 
-    <main>
-      <!-- HERO SECTION -->
-      <section id="home" class="hero">
-        <div class="container hero-inner">
-          <div
-            class="slider slider-hero"
-            data-slider
-            data-autoplay="true"
-            data-interval="6500"
-          >
-            <!-- Dark overlay over images -->
-            <div class="hero-overlay"></div>
+    <!-- HERO -->
+    <main id="top">
+      <section class="afpc-hero">
+        <div class="afpc-container afpc-hero-layout">
+          <!-- Left: text -->
+          <div>
+            <div class="afpc-hero-kicker">Serving Homeowners &amp; Contractors Across Florida</div>
+            <h1 class="afpc-hero-title">Plumbing Done Right the First Time</h1>
+            <p class="afpc-hero-tagline">
+              All Florida Plumbing Contractors handles everything from emergency leaks to
+              full new-construction installs. Licensed, insured, and ready for your next
+              project.
+            </p>
 
-            <!-- Background image slides -->
-            <div class="slider-track">
-              <!-- Slide 1 -->
-              <div
-                class="slide hero-slide is-active"
-                style="background-image: url('images/hero1.jpg');"
-              ></div>
-
-              <!-- Slide 2 -->
-              <div
-                class="slide hero-slide"
-                style="background-image: url('images/hero2.jpg');"
-              ></div>
-
-              <!-- Slide 3 -->
-              <div
-                class="slide hero-slide"
-                style="background-image: url('images/hero3.jpg');"
-              ></div>
+            <div class="afpc-hero-badges">
+              <span class="afpc-badge">Residential</span>
+              <span class="afpc-badge">Commercial</span>
+              <span class="afpc-badge">New Construction</span>
             </div>
 
-            <!-- Hero image controls -->
-            <button
-              class="slider-control slider-control--prev"
-              type="button"
-              aria-label="Previous hero slide"
-              data-slider-prev
+            <div class="afpc-hero-actions">
+              <a href="contact.html" class="afpc-btn afpc-btn-primary">Request Service</a>
+              <a href="services.html" class="afpc-btn afpc-btn-outline">View Services</a>
+            </div>
+          </div>
+
+          <!-- Right: hero photo slider -->
+          <div class="afpc-hero-slider-wrapper">
+            <div
+              class="slider afpc-slider"
+              data-slider
+              data-autoplay="true"
+              data-interval="6500"
             >
-              ‹
-            </button>
-            <button
-              class="slider-control slider-control--next"
-              type="button"
-              aria-label="Next hero slide"
-              data-slider-next
-            >
-              ›
-            </button>
-
-            <div class="slider-dots" aria-hidden="true"></div>
-
-            <!-- Light hero card with BIG logo + rotating reviews -->
-            <div class="hero-content hero-content--light">
-              <!-- Top area: big logo + main copy -->
-              <div
-                style="
-                  display: flex;
-                  flex-wrap: wrap;
-                  gap: 1.5rem;
-                  align-items: center;
-                  margin-bottom: 1.5rem;
-                "
-              >
-                <!-- Big hero logo -->
-                <img
-                  src="images/logo.png"
-                  alt="All Florida Plumbing Contractors logo"
-                  style="
-                    width: 130px;
-                    height: 130px;
-                    border-radius: 50%;
-                    border: 3px solid var(--afpc-orange);
-                    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-                    background: #fff;
-                    object-fit: contain;
-                  "
-                />
-
-                <div>
-                  <p
-                    style="
-                      margin: 0 0 0.4rem;
-                      font-size: 0.8rem;
-                      text-transform: uppercase;
-                      letter-spacing: 0.18em;
-                      color: #777;
-                    "
-                  >
-                    Serving All of Florida
-                  </p>
-                  <h1 style="margin: 0 0 0.4rem;">
-                    All Florida Plumbing Contractors
-                  </h1>
-                  <p
-                    style="
-                      margin: 0 0 1rem;
-                      font-size: 0.9rem;
-                      color: #555;
-                    "
-                  >
-                    Residential • Commercial • New Construction Plumbing
-                  </p>
-
-                  <div class="hero-actions">
-                    <a href="contact.html" class="btn btn-primary">Request Service</a>
-                    <a href="services.html" class="btn btn-outline">View Services</a>
-                  </div>
-                </div>
+              <div class="slider-track">
+                <div
+                  class="slide afpc-hero-slide is-active"
+                  style="background-image: url('images/hero1.jpg');"
+                ></div>
+                <div
+                  class="slide afpc-hero-slide"
+                  style="background-image: url('images/hero2.jpg');"
+                ></div>
+                <div
+                  class="slide afpc-hero-slide"
+                  style="background-image: url('images/hero3.jpg');"
+                ></div>
               </div>
 
-              <!-- Label above reviews -->
-              <p
-                style="
-                  margin: 0 0 0.4rem;
-                  font-size: 0.8rem;
-                  text-transform: uppercase;
-                  letter-spacing: 0.16em;
-                  color: #888;
-                "
+              <button
+                class="afpc-slider-control"
+                type="button"
+                aria-label="Previous hero image"
+                data-slider-prev
               >
-                5-Star Reviews from Florida Customers
-              </p>
-
-              <!-- Reviews slider INSIDE hero card -->
-              <div
-                class="slider hero-reviews-slider"
-                data-slider
-                data-autoplay="true"
-                data-interval="8000"
-                style="
-                  border-radius: 1rem;
-                  border: 1px solid rgba(0, 0, 0, 0.06);
-                  background: #f7f3ec;
-                  padding: 1.1rem 1.3rem;
-                  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-                "
+                ‹
+              </button>
+              <button
+                class="afpc-slider-control"
+                type="button"
+                aria-label="Next hero image"
+                data-slider-next
               >
-                <div class="slider-track">
-                  <!-- Review 1 -->
-                  <article class="slide review-slide is-active">
-                    <p
-                      class="review-text"
-                      style="color: #333; margin-bottom: 0.5rem;"
-                    >
-                      “AFPC showed up on time, diagnosed the issue quickly, and had our
-                      home back up and running the same day. Highly recommend.”
-                    </p>
-                    <p
-                      class="review-meta"
-                      style="color: #8b6b3b; font-weight: 600;"
-                    >
-                      — Maria R., Tampa
-                    </p>
-                  </article>
+                ›
+              </button>
 
-                  <!-- Review 2 -->
-                  <article class="slide review-slide">
-                    <p
-                      class="review-text"
-                      style="color: #333; margin-bottom: 0.5rem;"
-                    >
-                      “They handled all of the rough-in plumbing for our remodel and
-                      passed inspection with zero issues. Professional from start to
-                      finish.”
-                    </p>
-                    <p
-                      class="review-meta"
-                      style="color: #8b6b3b; font-weight: 600;"
-                    >
-                      — James H., Orlando
-                    </p>
-                  </article>
-
-                  <!-- Review 3 -->
-                  <article class="slide review-slide">
-                    <p
-                      class="review-text"
-                      style="color: #333; margin-bottom: 0.5rem;"
-                    >
-                      “Honest pricing, clean work, and they explained everything in plain
-                      English. AFPC is our new go-to plumber.”
-                    </p>
-                    <p
-                      class="review-meta"
-                      style="color: #8b6b3b; font-weight: 600;"
-                    >
-                      — Lisa &amp; Mark, Jacksonville
-                    </p>
-                  </article>
-
-                  <!-- Review 4 -->
-                  <article class="slide review-slide">
-                    <p
-                      class="review-text"
-                      style="color: #333; margin-bottom: 0.5rem;"
-                    >
-                      “We had an emergency sewer backup on a Sunday. AFPC had a tech out
-                      quickly and saved us from major damage.”
-                    </p>
-                    <p
-                      class="review-meta"
-                      style="color: #8b6b3b; font-weight: 600;"
-                    >
-                      — D. Nguyen, St. Petersburg
-                    </p>
-                  </article>
-
-                  <!-- Review 5 -->
-                  <article class="slide review-slide">
-                    <p
-                      class="review-text"
-                      style="color: #333; margin-bottom: 0.5rem;"
-                    >
-                      “As a contractor, I need subs I can trust. All Florida Plumbing
-                      Contractors hits deadlines and keeps my jobs moving.”
-                    </p>
-                    <p
-                      class="review-meta"
-                      style="color: #8b6b3b; font-weight: 600;"
-                    >
-                      — B. Alvarez, General Contractor
-                    </p>
-                  </article>
-                </div>
-
-                <!-- Review slider controls -->
-                <button
-                  class="slider-control slider-control--prev"
-                  type="button"
-                  aria-label="Previous review"
-                  data-slider-prev
-                  style="
-                    width: 30px;
-                    height: 30px;
-                    top: 50%;
-                  "
-                >
-                  ‹
-                </button>
-                <button
-                  class="slider-control slider-control--next"
-                  type="button"
-                  aria-label="Next review"
-                  data-slider-next
-                  style="
-                    width: 30px;
-                    height: 30px;
-                    top: 50%;
-                  "
-                >
-                  ›
-                </button>
-                <div class="slider-dots" aria-hidden="true"></div>
-              </div>
+              <div class="afpc-slider-dots" aria-hidden="true"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SERVICES PREVIEW SECTION (below hero) -->
-      <section class="section section-services" aria-label="Service overview">
-        <div class="container">
-          <div class="section-header">
-            <h2>Plumbing Services Across Florida</h2>
+      <!-- WHY CHOOSE AFPC -->
+      <section class="afpc-section afpc-section-why">
+        <div class="afpc-container">
+          <div class="afpc-section-header">
+            <h2>Why All Florida Plumbing Contractors</h2>
             <p>
-              From small residential repairs to large commercial construction projects, AFPC
-              can handle it all.
+              Professional plumbing support for busy families, property owners, and builders.
             </p>
           </div>
 
-          <div class="cards-grid">
-            <article class="card">
+          <div class="afpc-cards">
+            <article class="afpc-card">
+              <h3>Reliable Scheduling</h3>
+              <p>We show up when we say we will and keep you updated along the way.</p>
+            </article>
+            <article class="afpc-card">
+              <h3>Code-Compliant Work</h3>
+              <p>Installations that pass inspection and stand up to Florida’s climate.</p>
+            </article>
+            <article class="afpc-card">
+              <h3>Clean Job Sites</h3>
+              <p>Respect for your property—drop cloths, cleanup, and clear communication.</p>
+            </article>
+            <article class="afpc-card">
+              <h3>Contractor-Friendly</h3>
+              <p>Builders and GCs count on AFPC to hit deadlines and keep jobs moving.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES PREVIEW -->
+      <section class="afpc-section">
+        <div class="afpc-container">
+          <div class="afpc-section-header">
+            <h2>Plumbing Services Across Florida</h2>
+            <p>
+              From small repairs to large builds, we can customize a plan for your home or project.
+            </p>
+          </div>
+
+          <div class="afpc-cards">
+            <article class="afpc-card">
               <h3>Residential Plumbing</h3>
-              <p>Repairs, installations, and upgrades for homes and condos.</p>
+              <p>Leaks, clogs, fixture upgrades, repipes, and water heaters.</p>
             </article>
-            <article class="card">
+            <article class="afpc-card">
               <h3>Commercial Plumbing</h3>
-              <p>Reliable plumbing support for offices, retail, and multi-family.</p>
+              <p>Offices, retail, restaurants, and multi-family properties.</p>
             </article>
-            <article class="card">
+            <article class="afpc-card">
               <h3>New Construction</h3>
-              <p>Rough-ins, repipes, and trim-out for builders and GCs.</p>
+              <p>Rough-ins, trim-out, and inspection support for builders and GCs.</p>
             </article>
-            <article class="card">
+            <article class="afpc-card">
               <h3>Emergency Service</h3>
-              <p>On-call options for urgent leaks, backups, and no-water calls.</p>
+              <p>Fast response for backups, burst pipes, and no-water situations.</p>
             </article>
           </div>
 
           <div style="text-align:center; margin-top:2rem;">
-            <a href="services.html" class="btn btn-outline">View Full Service List</a>
+            <a href="services.html" class="afpc-btn afpc-btn-outline">View Full Service List</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVIEWS SLIDER (BOTTOM) -->
+      <section class="afpc-section afpc-section-reviews">
+        <div class="afpc-container afpc-reviews-layout">
+          <div class="afpc-section-header">
+            <h2>What Our Customers Say</h2>
+            <p>Real reviews from homeowners and contractors across Florida.</p>
+          </div>
+
+          <div
+            class="slider afpc-slider afpc-reviews-slider"
+            data-slider
+            data-autoplay="true"
+            data-interval="9000"
+          >
+            <div class="slider-track">
+              <article class="slide afpc-review-slide is-active">
+                <div class="afpc-stars">★★★★★</div>
+                <p class="review-text">
+                  “AFPC showed up on time, diagnosed the issue quickly, and had our home
+                  back up and running the same day. Highly recommend.”
+                </p>
+                <p class="review-meta">— Maria R., Tampa</p>
+              </article>
+
+              <article class="slide afpc-review-slide">
+                <div class="afpc-stars">★★★★★</div>
+                <p class="review-text">
+                  “They handled all of the rough-in plumbing for our remodel and passed
+                  inspection with zero issues. Professional from start to finish.”
+                </p>
+                <p class="review-meta">— James H., Orlando</p>
+              </article>
+
+              <article class="slide afpc-review-slide">
+                <div class="afpc-stars">★★★★★</div>
+                <p class="review-text">
+                  “Honest pricing, clean work, and they explained everything in plain English.
+                  AFPC is our new go-to plumber.”
+                </p>
+                <p class="review-meta">— Lisa &amp; Mark, Jacksonville</p>
+              </article>
+
+              <article class="slide afpc-review-slide">
+                <div class="afpc-stars">★★★★★</div>
+                <p class="review-text">
+                  “We had an emergency sewer backup on a Sunday. AFPC had a tech out quickly
+                  and saved us from major damage.”
+                </p>
+                <p class="review-meta">— D. Nguyen, St. Petersburg</p>
+              </article>
+
+              <article class="slide afpc-review-slide">
+                <div class="afpc-stars">★★★★★</div>
+                <p class="review-text">
+                  “As a contractor, I need subs I can trust. All Florida Plumbing Contractors
+                  hits deadlines and keeps my jobs moving.”
+                </p>
+                <p class="review-meta">— B. Alvarez, General Contractor</p>
+              </article>
+            </div>
+
+            <button
+              class="afpc-slider-control"
+              type="button"
+              aria-label="Previous review"
+              data-slider-prev
+            >
+              ‹
+            </button>
+            <button
+              class="afpc-slider-control"
+              type="button"
+              aria-label="Next review"
+              data-slider-next
+            >
+              ›
+            </button>
+
+            <div class="afpc-slider-dots" aria-hidden="true"></div>
           </div>
         </div>
       </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container footer-inner">
+    <footer class="afpc-footer">
+      <div class="afpc-container afpc-footer-inner">
         <p>
-          &copy; <span id="year"></span> All Florida Plumbing Contractors. All rights
-          reserved.
+          &copy; <span id="year"></span> All Florida Plumbing Contractors. All rights reserved.
         </p>
-        <p class="footer-small">
-          Licensed Florida plumbing contractors providing residential, commercial &amp; new
-          construction services.
-        </p>
+        <p>Licensed Florida plumbing contractors serving residential, commercial &amp; new construction clients.</p>
       </div>
     </footer>
   </div>
