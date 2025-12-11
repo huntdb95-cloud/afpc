@@ -25,8 +25,10 @@
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html#home" class="brand">
-          <!-- Put your logo at /images/logo.png -->
-          <img src="images/logo.png" alt="All Florida Plumbing Contractors logo" class="brand-logo" />
+          <!-- Header logo (smaller) -->
+          <img src="images/logo.png"
+               alt="All Florida Plumbing Contractors logo"
+               class="brand-logo" />
           <div class="brand-text">
             <span class="brand-name">All Florida</span>
             <span class="brand-subtitle">Plumbing Contractors</span>
@@ -63,26 +65,31 @@
             data-autoplay="true"
             data-interval="6500"
           >
+            <!-- Dark overlay over images -->
             <div class="hero-overlay"></div>
 
+            <!-- Background image slides -->
             <div class="slider-track">
-              <!-- Swap these with your real photos -->
+              <!-- Slide 1 -->
               <div
                 class="slide hero-slide is-active"
                 style="background-image: url('images/hero1.jpg');"
               ></div>
 
+              <!-- Slide 2 -->
               <div
                 class="slide hero-slide"
                 style="background-image: url('images/hero2.jpg');"
               ></div>
 
+              <!-- Slide 3 -->
               <div
                 class="slide hero-slide"
                 style="background-image: url('images/hero3.jpg');"
               ></div>
             </div>
 
+            <!-- Hero image controls -->
             <button
               class="slider-control slider-control--prev"
               type="button"
@@ -102,101 +109,215 @@
 
             <div class="slider-dots" aria-hidden="true"></div>
 
-            <!-- Light hero card -->
+            <!-- Light hero card with BIG logo + rotating reviews -->
             <div class="hero-content hero-content--light">
-              <h1>All Florida Plumbing Contractors</h1>
-              <p>
-                Licensed, insured, and ready for anything from leaks to new construction.
-                Serving homeowners, builders, and businesses throughout Florida.
+              <!-- Top area: big logo + main copy -->
+              <div
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 1.5rem;
+                  align-items: center;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <!-- Big hero logo -->
+                <img
+                  src="images/logo.png"
+                  alt="All Florida Plumbing Contractors logo"
+                  style="
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 50%;
+                    border: 3px solid var(--afpc-orange);
+                    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+                    background: #fff;
+                    object-fit: contain;
+                  "
+                />
+
+                <div>
+                  <p
+                    style="
+                      margin: 0 0 0.4rem;
+                      font-size: 0.8rem;
+                      text-transform: uppercase;
+                      letter-spacing: 0.18em;
+                      color: #777;
+                    "
+                  >
+                    Serving All of Florida
+                  </p>
+                  <h1 style="margin: 0 0 0.4rem;">
+                    All Florida Plumbing Contractors
+                  </h1>
+                  <p
+                    style="
+                      margin: 0 0 1rem;
+                      font-size: 0.9rem;
+                      color: #555;
+                    "
+                  >
+                    Residential • Commercial • New Construction Plumbing
+                  </p>
+
+                  <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary">Request Service</a>
+                    <a href="services.html" class="btn btn-outline">View Services</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Label above reviews -->
+              <p
+                style="
+                  margin: 0 0 0.4rem;
+                  font-size: 0.8rem;
+                  text-transform: uppercase;
+                  letter-spacing: 0.16em;
+                  color: #888;
+                "
+              >
+                5-Star Reviews from Florida Customers
               </p>
-              <div class="hero-actions">
-                <a href="contact.html" class="btn btn-primary">Request Service</a>
-                <a href="services.html" class="btn btn-outline">View Services</a>
+
+              <!-- Reviews slider INSIDE hero card -->
+              <div
+                class="slider hero-reviews-slider"
+                data-slider
+                data-autoplay="true"
+                data-interval="8000"
+                style="
+                  border-radius: 1rem;
+                  border: 1px solid rgba(0, 0, 0, 0.06);
+                  background: #f7f3ec;
+                  padding: 1.1rem 1.3rem;
+                  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+                "
+              >
+                <div class="slider-track">
+                  <!-- Review 1 -->
+                  <article class="slide review-slide is-active">
+                    <p
+                      class="review-text"
+                      style="color: #333; margin-bottom: 0.5rem;"
+                    >
+                      “AFPC showed up on time, diagnosed the issue quickly, and had our
+                      home back up and running the same day. Highly recommend.”
+                    </p>
+                    <p
+                      class="review-meta"
+                      style="color: #8b6b3b; font-weight: 600;"
+                    >
+                      — Maria R., Tampa
+                    </p>
+                  </article>
+
+                  <!-- Review 2 -->
+                  <article class="slide review-slide">
+                    <p
+                      class="review-text"
+                      style="color: #333; margin-bottom: 0.5rem;"
+                    >
+                      “They handled all of the rough-in plumbing for our remodel and
+                      passed inspection with zero issues. Professional from start to
+                      finish.”
+                    </p>
+                    <p
+                      class="review-meta"
+                      style="color: #8b6b3b; font-weight: 600;"
+                    >
+                      — James H., Orlando
+                    </p>
+                  </article>
+
+                  <!-- Review 3 -->
+                  <article class="slide review-slide">
+                    <p
+                      class="review-text"
+                      style="color: #333; margin-bottom: 0.5rem;"
+                    >
+                      “Honest pricing, clean work, and they explained everything in plain
+                      English. AFPC is our new go-to plumber.”
+                    </p>
+                    <p
+                      class="review-meta"
+                      style="color: #8b6b3b; font-weight: 600;"
+                    >
+                      — Lisa &amp; Mark, Jacksonville
+                    </p>
+                  </article>
+
+                  <!-- Review 4 -->
+                  <article class="slide review-slide">
+                    <p
+                      class="review-text"
+                      style="color: #333; margin-bottom: 0.5rem;"
+                    >
+                      “We had an emergency sewer backup on a Sunday. AFPC had a tech out
+                      quickly and saved us from major damage.”
+                    </p>
+                    <p
+                      class="review-meta"
+                      style="color: #8b6b3b; font-weight: 600;"
+                    >
+                      — D. Nguyen, St. Petersburg
+                    </p>
+                  </article>
+
+                  <!-- Review 5 -->
+                  <article class="slide review-slide">
+                    <p
+                      class="review-text"
+                      style="color: #333; margin-bottom: 0.5rem;"
+                    >
+                      “As a contractor, I need subs I can trust. All Florida Plumbing
+                      Contractors hits deadlines and keeps my jobs moving.”
+                    </p>
+                    <p
+                      class="review-meta"
+                      style="color: #8b6b3b; font-weight: 600;"
+                    >
+                      — B. Alvarez, General Contractor
+                    </p>
+                  </article>
+                </div>
+
+                <!-- Review slider controls -->
+                <button
+                  class="slider-control slider-control--prev"
+                  type="button"
+                  aria-label="Previous review"
+                  data-slider-prev
+                  style="
+                    width: 30px;
+                    height: 30px;
+                    top: 50%;
+                  "
+                >
+                  ‹
+                </button>
+                <button
+                  class="slider-control slider-control--next"
+                  type="button"
+                  aria-label="Next review"
+                  data-slider-next
+                  style="
+                    width: 30px;
+                    height: 30px;
+                    top: 50%;
+                  "
+                >
+                  ›
+                </button>
+                <div class="slider-dots" aria-hidden="true"></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- REVIEWS SLIDER -->
-      <section class="section section-reviews" aria-labelledby="reviews-heading">
-        <div class="container">
-          <div class="section-header">
-            <h2 id="reviews-heading">What Our Customers Say</h2>
-            <p>Real feedback from happy customers across the state.</p>
-          </div>
-
-          <div
-            class="slider slider-reviews"
-            data-slider
-            data-autoplay="true"
-            data-interval="8000"
-          >
-            <div class="slider-track">
-              <!-- Replace these 5 reviews with your real ones -->
-              <article class="slide review-slide is-active">
-                <p class="review-text">
-                  “AFPC showed up on time, diagnosed the issue quickly, and had our home
-                  back up and running the same day. Highly recommend.”
-                </p>
-                <p class="review-meta">— Maria R., Tampa</p>
-              </article>
-
-              <article class="slide review-slide">
-                <p class="review-text">
-                  “They handled all of the rough-in plumbing for our remodel and passed
-                  inspection with zero issues. Professional from start to finish.”
-                </p>
-                <p class="review-meta">— James H., Orlando</p>
-              </article>
-
-              <article class="slide review-slide">
-                <p class="review-text">
-                  “Honest pricing, clean work, and they explained everything in plain
-                  English. AFPC is our new go-to plumber.”
-                </p>
-                <p class="review-meta">— Lisa &amp; Mark, Jacksonville</p>
-              </article>
-
-              <article class="slide review-slide">
-                <p class="review-text">
-                  “We had an emergency sewer backup on a Sunday. AFPC had a tech out
-                  quickly and saved us from major damage.”
-                </p>
-                <p class="review-meta">— D. Nguyen, St. Petersburg</p>
-              </article>
-
-              <article class="slide review-slide">
-                <p class="review-text">
-                  “As a contractor, I need subs I can trust. All Florida Plumbing
-                  Contractors hits deadlines and keeps my jobs moving.”
-                </p>
-                <p class="review-meta">— B. Alvarez, General Contractor</p>
-              </article>
-            </div>
-
-            <button
-              class="slider-control slider-control--prev"
-              type="button"
-              aria-label="Previous review"
-              data-slider-prev
-            >
-              ‹
-            </button>
-            <button
-              class="slider-control slider-control--next"
-              type="button"
-              aria-label="Next review"
-              data-slider-next
-            >
-              ›
-            </button>
-            <div class="slider-dots" aria-hidden="true"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Quick Overview of Services -->
+      <!-- SERVICES PREVIEW SECTION (below hero) -->
       <section class="section section-services" aria-label="Service overview">
         <div class="container">
           <div class="section-header">
@@ -222,7 +343,7 @@
             </article>
             <article class="card">
               <h3>Emergency Service</h3>
-              <p>24/7 response options for urgent leaks, backups, and no-water calls.</p>
+              <p>On-call options for urgent leaks, backups, and no-water calls.</p>
             </article>
           </div>
 
