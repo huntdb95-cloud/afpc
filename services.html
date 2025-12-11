@@ -11,161 +11,148 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html#home" class="brand">
-          <img src="images/logo.png" alt="All Florida Plumbing Contractors logo" class="brand-logo" />
-          <div class="brand-text">
-            <span class="brand-name">All Florida</span>
-            <span class="brand-subtitle">Plumbing Contractors</span>
-          </div>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-        >
-          <span></span><span></span><span></span>
-        </button>
-
-        <nav class="site-nav" aria-label="Main navigation">
-          <ul>
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section class="section">
-        <div class="container section-header">
-          <h2>Plumbing Services</h2>
-          <p>
-            AFPC provides end-to-end plumbing support for
-            homeowners, property managers, and construction professionals across Florida.
-          </p>
+  <header class="afpc-header">
+    <div class="afpc-container afpc-header-inner">
+      <a href="index.html#top" class="afpc-brand">
+        <img src="images/logo.png" alt="All Florida Plumbing Contractors logo" class="afpc-logo-main" />
+        <div class="afpc-brand-text">
+          <span class="afpc-brand-title">All Florida</span>
+          <span class="afpc-brand-subtitle">Plumbing Contractors</span>
         </div>
-      </section>
+      </a>
 
-      <section class="section section-services" aria-labelledby="services-residential">
-        <div class="container">
-          <div class="section-header">
-            <h2 id="services-residential">Residential Services</h2>
-            <p>Fast, clean, and reliable service for your home or condo.</p>
-          </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-          <div class="cards-grid">
-            <article class="card">
-              <h3>Fixture Repairs &amp; Installs</h3>
-              <p>Faucets, sinks, showers, tubs, toilets, garbage disposals, and more.</p>
-            </article>
-            <article class="card">
-              <h3>Water Heaters</h3>
-              <p>Tank and tankless installation, replacement, and maintenance.</p>
-            </article>
-            <article class="card">
-              <h3>Leak Detection</h3>
-              <p>Slab leaks, wall leaks, and hidden line leaks located and repaired.</p>
-            </article>
-            <article class="card">
-              <h3>Drain Cleaning</h3>
-              <p>Kitchen, bath, main line, and sewer backups cleared and flowing.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html#top">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      <section class="section section-services" aria-labelledby="services-commercial">
-        <div class="container">
-          <div class="section-header">
-            <h2 id="services-commercial">Commercial &amp; Multi-Family</h2>
-            <p>
-              Plumbing solutions built for busy facilities, tight schedules, and code
-              compliance.
-            </p>
-          </div>
-
-          <div class="cards-grid">
-            <article class="card">
-              <h3>Tenant Improvements</h3>
-              <p>Build-outs for offices, retail, restaurants, and medical spaces.</p>
-            </article>
-            <article class="card">
-              <h3>Restrooms &amp; Common Areas</h3>
-              <p>Multi-fixture restrooms, break rooms, and shared amenities.</p>
-            </article>
-            <article class="card">
-              <h3>Backflow &amp; Testing</h3>
-              <p>Backflow prevention devices, annual testing, and repairs.</p>
-            </article>
-            <article class="card">
-              <h3>Maintenance Programs</h3>
-              <p>Scheduled inspections and preventive service for your properties.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-services" aria-labelledby="services-construction">
-        <div class="container">
-          <div class="section-header">
-            <h2 id="services-construction">New Construction &amp; Remodels</h2>
-            <p>
-              Turn-key plumbing systems for ground-up builds and renovation projects.
-            </p>
-          </div>
-
-          <div class="cards-grid">
-            <article class="card">
-              <h3>Design &amp; Layout</h3>
-              <p>Rough-in planning with builders, GCs, and engineers.</p>
-            </article>
-            <article class="card">
-              <h3>Rough-In &amp; Repipes</h3>
-              <p>Full piping systems, domestic water lines, and re-routes.</p>
-            </article>
-            <article class="card">
-              <h3>Trim-Out</h3>
-              <p>Final fixture installation and finishing work for inspections.</p>
-            </article>
-            <article class="card">
-              <h3>Inspection Support</h3>
-              <p>Code-compliant installs and on-site support for inspections.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container" style="text-align:center;">
-          <h2 style="text-transform:uppercase; letter-spacing:0.16em; font-size:1rem; color:#e3e7e2;">
-            Need Something Not Listed?
-          </h2>
-          <p style="max-width:640px; margin:0.75rem auto 1.5rem; color:#c2cbc4;">
-            If water runs through it, we can help. Tell us about your project or problem and
-            we’ll let you know how AFPC can assist.
-          </p>
-          <a href="contact.html" class="btn btn-primary">Request a Quote</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>&copy; <span id="year"></span> All Florida Plumbing Contractors. All rights reserved.</p>
-        <p class="footer-small">
-          Licensed Florida plumbing contractors providing residential, commercial &amp; new
-          construction services.
+  <main>
+    <section class="afpc-section">
+      <div class="afpc-container afpc-section-header">
+        <h2>Plumbing Services</h2>
+        <p>
+          AFPC provides end-to-end plumbing support for homeowners, property managers, and
+          construction professionals across Florida.
         </p>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <section class="afpc-section afpc-section-why">
+      <div class="afpc-container">
+        <div class="afpc-section-header">
+          <h2>Residential Services</h2>
+          <p>Fast, clean, and reliable service for your home or condo.</p>
+        </div>
+
+        <div class="afpc-cards">
+          <article class="afpc-card">
+            <h3>Fixture Repairs &amp; Installs</h3>
+            <p>Faucets, sinks, showers, tubs, toilets, garbage disposals, and more.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Water Heaters</h3>
+            <p>Tank and tankless installation, replacement, and maintenance.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Leak Detection</h3>
+            <p>Slab leaks, wall leaks, and hidden line leaks located and repaired.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Drain Cleaning</h3>
+            <p>Kitchen, bath, main line, and sewer backups cleared and flowing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="afpc-section">
+      <div class="afpc-container">
+        <div class="afpc-section-header">
+          <h2>Commercial &amp; Multi-Family</h2>
+          <p>
+            Plumbing solutions built for busy facilities, tight schedules, and code compliance.
+          </p>
+        </div>
+
+        <div class="afpc-cards">
+          <article class="afpc-card">
+            <h3>Tenant Improvements</h3>
+            <p>Build-outs for offices, retail, restaurants, and medical spaces.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Restrooms &amp; Common Areas</h3>
+            <p>Multi-fixture restrooms, break rooms, and shared amenities.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Backflow &amp; Testing</h3>
+            <p>Backflow devices, annual testing, and repairs.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Maintenance Programs</h3>
+            <p>Scheduled inspections and preventive service for your properties.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="afpc-section">
+      <div class="afpc-container">
+        <div class="afpc-section-header">
+          <h2>New Construction &amp; Remodels</h2>
+          <p>Turn-key plumbing systems for ground-up builds and renovation projects.</p>
+        </div>
+
+        <div class="afpc-cards">
+          <article class="afpc-card">
+            <h3>Design &amp; Layout</h3>
+            <p>Rough-in planning with builders, GCs, and engineers.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Rough-In &amp; Repipes</h3>
+            <p>Full piping systems, domestic water lines, and re-routes.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Trim-Out</h3>
+            <p>Final fixture installation and finishing work for inspections.</p>
+          </article>
+          <article class="afpc-card">
+            <h3>Inspection Support</h3>
+            <p>Code-compliant installs and on-site support for inspections.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="afpc-section">
+      <div class="afpc-container" style="text-align:center;">
+        <h2 style="text-transform:uppercase; letter-spacing:0.16em; font-size:1rem;">
+          Need Something Not Listed?
+        </h2>
+        <p style="max-width:640px; margin:0.75rem auto 1.5rem; color:#555;">
+          If water runs through it, we can help. Tell us about your project or problem and
+          we’ll let you know how AFPC can assist.
+        </p>
+        <a href="contact.html" class="afpc-btn afpc-btn-primary">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="afpc-footer">
+    <div class="afpc-container afpc-footer-inner">
+      <p>&copy; <span id="year"></span> All Florida Plumbing Contractors. All rights reserved.</p>
+      <p>Licensed Florida plumbing contractors serving residential, commercial &amp; new construction clients.</p>
+    </div>
+  </footer>
 
   <script src="scripts.js"></script>
 </body>
